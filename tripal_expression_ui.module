@@ -1,0 +1,23 @@
+<?php
+
+
+function tripal_expression_ui_menu() {
+    $items = array();
+
+    $items['heatmap'] = array(
+        'title' => 'Heatmap form',
+        'page callback' => 'render_expression_blocks',
+        'access arguments' => array('access content'),
+        'type' => MENU_CALLBACK,
+     );
+
+    return $items;
+}
+
+function render_expression_blocks() {
+        $blockObjectInput = block_load('tripal_analysis_expression', 'input_features');
+        $blockObjectVisual = block_load('tripal_analysis_expression', 'heatmap_features');
+        $block = _block_get_renderable_array(_block_render_blocks(array($blockObjectInput, $blockObjectVisual)));
+        $output = drupal_render($block);
+        return $output;
+}
