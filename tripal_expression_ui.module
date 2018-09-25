@@ -5,7 +5,6 @@ function tripal_expression_ui_menu() {
     $items = array();
 
     $items['heatmap'] = array(
-        'title' => 'Heatmap form',
         'page callback' => 'render_expression_blocks',
         'access arguments' => array('access content'),
         'type' => MENU_CALLBACK,
