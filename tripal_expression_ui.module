@@ -15,7 +15,8 @@ function tripal_expression_ui_menu() {
 
 function render_expression_blocks() {
         $blockObjectInput = block_load('tripal_analysis_expression', 'input_features');
-        $block = _block_get_renderable_array(_block_render_blocks(array($blockObjectInput)));
+        $blockObjectView = block_load('tripal_analysis_expression', 'heatmap_features');
+        $block = _block_get_renderable_array(_block_render_blocks(array($blockObjectInput, $blockObjectView)));
         $output = drupal_render($block);
         return $output;
 }
